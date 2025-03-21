@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Love Meter - The official website for the Love Meter project by KZRI member Bruh_XD">
+    <meta name="keywords" content="love meter, love calculator, relationship, KZRI">
+    <meta name="author" content="Bruh_XD">
+    <meta name="theme-color" content="#FF4D8D">
+    <title>Love Meter - Official Website</title>
+    <link rel="stylesheet" href="src/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Love Meter</h1>
+            <div class="header-right">
+                <nav>
+                    <a href="#about">About</a>
+                    <a href="#download">Download</a>
+                    <a href="#community">Community</a>
+                </nav>
+                <div class="dark-mode-btn">
+                    <button id="dark-mode-toggle" title="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                        <span>Toggle Dark Mode</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="hero">
+                <div class="hero-content">
+                    <h2>Welcome to Love Meter official website</h2>
+                    <p>A project made by one of KZRI member</p>
+                    <a href="#download" class="cta-button">Download Now</a>
+                </div>
+            </section>
+
+            <section id="about">
+                <h2>What is Love Meter project?</h2>
+                <p>Love Meter is a project made by Bruh_XD</p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>Accurate Love Check</h3>
+                        <p>Accurate love using our next gen love calculation system</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Personalized Experience</h3>
+                        <p>With our newest personalization settings</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Flawless Performance</h3>
+                        <p>With every our update having a performance fix</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="download">
+                <h2>Download Love Meter</h2>
+                <div class="download-links">
+                    <a href="https://github.com/Buush653/LoveMeter/releases/tag/LoveMeter" class="download-button github">
+                        GitHub Release
+                    </a>
+                    <a href="https://www.reddit.com/r/MASFandom/" class="download-button community">
+                        Community Support
+                    </a>
+                </div>
+                <p class="disclaimer">If you want to check older version visit our GitHub Releases, but if you need help or anything else click the Community Support button</p>
+            </section>
+
+            <section id="community">
+                <h2>Join Our Community</h2>
+                <div class="social-links">
+                    <a href="https://discord.gg/MAS" class="social-button discord">Discord</a>
+                    <a href="https://www.reddit.com/r/MASFandom/" class="social-button reddit">Reddit</a>
+                    <a href="https://github.com/Buush653/LoveMeter" class="social-button github">GitHub</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>2025 Love Meter | Not officially affiliated with KZRI</p>
+        </footer>
+    </div>
+
+    <div id="hearts-container"></div>
+
+    <script src="src/app.js"></script>
+    <script>
+        // Dark mode toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const htmlElement = document.documentElement;
+
+            // Check saved preferences
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            htmlElement.setAttribute('data-theme', currentTheme);
+
+            // Toggle dark mode on button click
+            darkModeToggle.addEventListener('click', function() {
+                if (htmlElement.getAttribute('data-theme') === 'light') {
+                    htmlElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    htmlElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // Random floating hearts
+            const heartsContainer = document.getElementById('hearts-container');
+
+            function createFloatingHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.top = window.innerHeight + 'px';
+                heart.style.fontSize = Math.random() * 30 + 10 + 'px';
+                heart.style.animationDuration = Math.random() * 6 + 4 + 's';
+
+                heartsContainer.appendChild(heart);
+
+                // Remove heart after animation
+                setTimeout(() => {
+                    heart.remove();
+                }, 10000);
+            }
+
+            // Create initial hearts
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    createFloatingHeart();
+                }, Math.random() * 2000);
+            }
+
+            // Continue creating hearts periodically
+            setInterval(() => {
+                createFloatingHeart();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
