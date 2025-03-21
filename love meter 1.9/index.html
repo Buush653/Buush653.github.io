@@ -1,0 +1,100 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Meter</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.cdnfonts.com/s/20812/Minecraftia.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+
+<body>
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="videoplayback 5.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <div class="app-container">
+    <div class="version-tag">BETA 1.9</div>
+    <div class="settings-button"><i class="fas fa-cog"></i></div>
+    <div class="love-calculator">
+      <h1><i class="fas fa-heart"></i> Love Calculator <i class="fas fa-heart"></i></h1>
+      <div class="name-inputs">
+        <input type="text" id="name1" placeholder="Enter name 1">
+        <input type="text" id="name2" placeholder="Enter name 2">
+      </div>
+      <div class="compatibility-meter">
+        <div class="meter-bar">
+          <div class="meter-fill"></div>
+        </div>
+        <span class="meter-percentage">0%</span>
+        <div class="result-message">Click to find out!</div>
+      </div>
+      <div class="actions">
+        <div class="actions-left">
+          <button class="history-toggle">History</button>
+          <button class="calculate-button">Calculate</button>
+        </div>
+        <div class="actions-right">
+          <button class="reset-button">Reset</button>
+          <button class="clear-history-button">Clear History</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="history-panel">
+      <div class="history-header">
+        <h2>Love History</h2>
+        <span class="close-history"><i class="fas fa-times"></i></span>
+      </div>
+      <ul class="history-list">
+        <!-- History items will be dynamically added here -->
+      </ul>
+    </div>
+
+    <div class="settings-panel">
+      <div class="settings-header">
+        <h2>Customization</h2>
+        <span class="close-settings"><i class="fas fa-times"></i></span>
+      </div>
+      <div class="settings-content">
+        <div class="setting-group">
+          <label>Font Style</label>
+          <select id="font-selector">
+            <option value="'Minecraftia', sans-serif">Minecraftia</option>
+            <option value="'Arial', sans-serif">Arial</option>
+            <option value="'Times New Roman', serif">Times New Roman</option>
+            <option value="'Comic Sans MS', cursive">Comic Sans</option>
+            <option value="'Courier New', monospace">Courier New</option>
+          </select>
+        </div>
+        <div class="setting-group">
+          <label>UI Color</label>
+          <div class="color-options">
+            <div class="color-option" data-gradient="linear-gradient(45deg, #ffb3ba, #ff6b6b)" style="background: linear-gradient(45deg, #ffb3ba, #ff6b6b);"></div>
+            <div class="color-option" data-gradient="linear-gradient(45deg, #a0d2eb, #4c8bf5)" style="background: linear-gradient(45deg, #a0d2eb, #4c8bf5);"></div>
+            <div class="color-option" data-gradient="linear-gradient(45deg, #b8e0d2, #5cdb95)" style="background: linear-gradient(45deg, #b8e0d2, #5cdb95);"></div>
+            <div class="color-option" data-gradient="linear-gradient(45deg, #d0a5c0, #8e44ad)" style="background: linear-gradient(45deg, #d0a5c0, #8e44ad);"></div>
+            <div class="color-option" data-gradient="linear-gradient(45deg, #ffd8b1, #ff9f1a)" style="background: linear-gradient(45deg, #ffd8b1, #ff9f1a);"></div>
+          </div>
+        </div>
+        <div class="setting-group">
+          <label>Background Image</label>
+          <input type="file" id="background-image-upload" accept="image/*">
+          <button class="file-upload-button" id="custom-file-upload">Choose File</button>
+          <button id="reset-background">Reset Background</button>
+        </div>
+      </div>
+    </div>
+    <div id="particles-container"></div>
+  </div>
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
